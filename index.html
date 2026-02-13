@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Valentine 💖</title>
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: #f6f6f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+  }
+
+  .card {
+    background: white;
+    width: 320px;
+    padding: 20px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  }
+
+  img {
+    width: 220px;
+    border-radius: 12px;
+  }
+
+  p {
+    font-size: 18px;
+    margin: 15px 0;
+  }
+
+  .buttons {
+    margin-top: 15px;
+  }
+
+  button {
+    padding: 10px 18px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+  }
+
+  #yes {
+    background: #ff4d6d;
+    color: white;
+    transition: transform 0.3s;
+  }
+
+  #no {
+    background: #ccc;
+  }
+</style>
+</head>
+
+<body>
+<div class="card">
+  <img id="img" src="https://media1.tenor.com/m/kutFNFXxSIsAAAAd/minion-minion-loves.gif">
+
+  <p id="text">Will you be my valentine, Lorin? 💕</p>
+
+  <div class="buttons">
+    <button id="yes">Yes</button>
+    <button id="no">No</button>
+  </div>
+</div>
+
+<script>
+  const text = document.getElementById("text");
+  const yesBtn = document.getElementById("yes");
+  const noBtn = document.getElementById("no");
+  const img = document.getElementById("img");
+
+  let noCount = 0;
+  let yesScale = 1;
+
+  const messages = [
+    "Are you sure? 😢",
+    "Really sure?? 🥺",
+    "Think again… 😭",
+    "Last chance 💔",
+    "You don't mean that 😭😭"
+  ];
+
+  noBtn.addEventListener("click", () => {
+    noCount++;
+    text.innerText = messages[Math.min(noCount, messages.length - 1)];
+
+    yesScale += 0.25;
+    yesBtn.style.transform = `scale(${yesScale})`;
+  });
+
+  yesBtn.addEventListener("click", () => {
+    img.src = "https://media1.tenor.com/m/aN_HGmP-ZgAAAAAd/m.gif";
+    text.innerText = "GOOD GIRL MAKE OPPA PROUD😘";
+
+    noBtn.style.display = "none";
+    yesBtn.style.display = "none";
+  });
+</script>
+</body>
+</html>
